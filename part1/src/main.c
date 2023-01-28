@@ -15,25 +15,18 @@ static void conjecture(int len, void* options, int sz, void fn(void*))
 	static int index = 0;
     if(index == 0)
     {
-		// context gets restored here
         getcontext(&ctx);
-		char st[16384];
-        ctx.uc_stack.ss_sp = st;
-        ctx.uc_stack.ss_size = sizeof st;
 		ctx.uc_link = &ctx;
     }
 	if(index == len) return;
 	index++; // updating index before calling
 	fn(arr+index-1);
-	setcontext(&ctx);
-	// puts("Finish conjecture"); // doesn't get printed :)
 }; // Create context and start traversal
 
 void assert(bool b)
 {
     if(b) return;
     setcontext(&ctx);
-	// puts("Finish assert"); // doesn't get printed :)
 }; // Restore context if condition fails
 
 bool is_prime(int x) {
