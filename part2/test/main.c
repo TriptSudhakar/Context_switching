@@ -29,19 +29,19 @@ int main(int argc, char** argv) {
 
 static void f2 (char* word) {
     printf("Inside f2 %s\n", word);
-    // acquire_bucket(&hashmap, word);
+    acquire_bucket(&hashmap, word);
     int* c = (int*) hashmap_get(&hashmap, word);
     int* c1 = (int*) malloc(sizeof(int));
     *c1 = 1;
     if(c != NULL) {
-        // for(int i = 0; i < *c; i ++) {
-        //     mythread_yield();
-        // }
+        for(int i = 0; i < *c; i ++) {
+            mythread_yield();
+        }
         *c1 = *c + 1;
     }
     printf("Inside f2: c1 %d\n", *c1);
     hashmap_put(&hashmap, word, c1);
-    // release_bucket(&hashmap, word);
+    release_bucket(&hashmap, word);
     puts("finish f2");
 }
 

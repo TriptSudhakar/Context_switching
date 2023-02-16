@@ -42,14 +42,44 @@ void mythread_join()
 
 void mythread_yield()
 {
+	struct listentry* p = threadlist->head;
+	struct listentry* n = threadlist->head->next;
 
+	if(p!=NULL && n!=NULL)
+	{
+		n->prev = NULL;
+		p->next = NULL;
+		threadlist->head = n;
+		threadlist->tail->next = p;
+		p->prev = threadlist->tail;
+		threadlist->tail = p;
+		swapcontext((ucontext_t*)p->data,(ucontext_t*)n->data);
+	}
 };  // Perform context switching here
 
 struct lock {
 	ucontext_t* ctx;
 };
-struct lock* lock_new();   // return an initialized lock object
-void lock_acquire(struct lock* lk);   // Set lock. Yield if lock is acquired by some other thread.
-int lock_release(struct lock* lk);   // Release lock
+
+struct lock* lock_new()
+{
+	struct lock *l = (struct lock*) malloc(sizeof(struct lock));
+	l->ctx = NULL;
+	return l;
+};   // return an initialized lock object
+
+void lock_acquire(struct lock* lk)
+{
+	while(lk->ctx!=NULL)
+	{
+		mythread_yield();
+	}
+	lk->ctx = threadlist->head->data;
+};   // Set lock. Yield if lock is acquired by some other thread.
+
+int lock_release(struct lock* lk)
+{
+	lk->ctx = NULL;
+};   // Release lock
 
 #endif

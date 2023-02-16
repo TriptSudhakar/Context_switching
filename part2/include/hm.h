@@ -29,6 +29,7 @@ int hashmap_create(struct hashmap_s *const out_hashmap)
     for(int i=0;i<SZ;i++)
     {
         out_hashmap->table[i] = list_new();
+        out_hashmap->lk[i] = lock_new();
     }
     return 0;
 };   // Initialize a hashmap
@@ -88,10 +89,16 @@ void hashmap_iterator(struct hashmap_s* const hashmap, int (*f)(struct hashmap_e
 
 int acquire_bucket(struct hashmap_s *const hashmap, const char* key)
 {
-
+    int hashval = hashfn(key);
+    struct lock* temp = hashmap->lk[hashval];
+    lock_acquire(temp);
+    return 0;
 };   // Acquire lock on a hashmap slot
 
 int release_bucket(struct hashmap_s *const hashmap, const char* key)
 {
-
+    int hashval = hashfn(key);
+    struct lock* temp = hashmap->lk[hashval];
+    lock_release(temp);
+    return 0;
 };   // Release acquired lock
