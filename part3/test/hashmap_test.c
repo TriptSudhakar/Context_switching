@@ -1,10 +1,7 @@
-
 #include <stdio.h>
-#include "hm.h"
-#include "list.h"
+#include "../include/hm.h"
 #include <stdlib.h>
 #include <string.h>
-#include "mythread.h"
 
 struct hashmap_s hashmap;
 
