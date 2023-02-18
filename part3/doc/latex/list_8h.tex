@@ -1,0 +1,80 @@
+\hypertarget{list_8h}{}\doxysection{include/list.h File Reference}
+\label{list_8h}\index{include/list.h@{include/list.h}}
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlist}{list}}
+\begin{DoxyCompactList}\small\item\em Doubly linked list. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlistentry}{listentry}}
+\begin{DoxyCompactList}\small\item\em Elements of the Linked List. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{list_8h_a2439cbd6a22b846a91b51aad0511157a}{list\+\_\+rm}} (struct \mbox{\hyperlink{structlist}{list}} $\ast$\mbox{\hyperlink{mythread_8c_a1f8ead7bc2ead0233b1bd1d1c4128722}{l}}, struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Removes the given element from the Linked List. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$ \mbox{\hyperlink{list_8h_af765588f85d40e377c9bf749077b9865}{list\+\_\+add}} (struct \mbox{\hyperlink{structlist}{list}} $\ast$\mbox{\hyperlink{mythread_8c_a1f8ead7bc2ead0233b1bd1d1c4128722}{l}}, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Adds the given element to the Linked List. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlist}{list}} $\ast$ \mbox{\hyperlink{list_8h_aaeefeb49e551e579788a121e2070b48e}{list\+\_\+new}} ()
+\item 
+int \mbox{\hyperlink{list_8h_a4df754b95439918e8813c67771283a40}{is\+\_\+empty}} (struct \mbox{\hyperlink{structlist}{list}} $\ast$\mbox{\hyperlink{mythread_8c_a1f8ead7bc2ead0233b1bd1d1c4128722}{l}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{list_8h_a4df754b95439918e8813c67771283a40}\label{list_8h_a4df754b95439918e8813c67771283a40}} 
+\index{list.h@{list.h}!is\_empty@{is\_empty}}
+\index{is\_empty@{is\_empty}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{is\_empty()}{is\_empty()}}
+{\footnotesize\ttfamily int is\+\_\+empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlist}{list}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & \+: Pointer to a linked list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1 if List is empty and 0 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{list_8h_af765588f85d40e377c9bf749077b9865}\label{list_8h_af765588f85d40e377c9bf749077b9865}} 
+\index{list.h@{list.h}!list\_add@{list\_add}}
+\index{list\_add@{list\_add}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_add()}{list\_add()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlistentry}{listentry}}$\ast$ list\+\_\+add (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlist}{list}} $\ast$}]{l,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & \+: Pointer to the linked list. \\
+\hline
+{\em data} & \+: Element that needs to be added.\\
+\hline
+\end{DoxyParams}
+Creates an object of type listentry with its data as the given input and adds it to the end of the list. Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{list_8h_aaeefeb49e551e579788a121e2070b48e}\label{list_8h_aaeefeb49e551e579788a121e2070b48e}} 
+\index{list.h@{list.h}!list\_new@{list\_new}}
+\index{list\_new@{list\_new}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_new()}{list\_new()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlist}{list}}$\ast$ list\+\_\+new (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Returns pointer to a dynamically allocated Linked List. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{list_8h_a2439cbd6a22b846a91b51aad0511157a}\label{list_8h_a2439cbd6a22b846a91b51aad0511157a}} 
+\index{list.h@{list.h}!list\_rm@{list\_rm}}
+\index{list\_rm@{list\_rm}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{list\_rm()}{list\_rm()}}
+{\footnotesize\ttfamily void list\+\_\+rm (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlist}{list}} $\ast$}]{l,  }\item[{struct \mbox{\hyperlink{structlistentry}{listentry}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & \+: pointer to the linked list. \\
+\hline
+{\em e} & \+: pointer to the linked list entry need to be removed.\\
+\hline
+\end{DoxyParams}
+Removes the given element from the Linked List by iterating through it and removing when found. Here is the caller graph for this function\+:
+% FIG 3

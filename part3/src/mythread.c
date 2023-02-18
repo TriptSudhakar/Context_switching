@@ -11,7 +11,7 @@ void mythread_init() {
 
 void* mythread_create(void func(void*), void* arg){
 	pthread_t* t = (pthread_t*) malloc(sizeof(pthread_t));
-	pthread_create(t, NULL, func, arg);
+	pthread_create(t, NULL, (void * (*)(void *))func, arg);
 	list_add(l, t);
 	return t;
 }

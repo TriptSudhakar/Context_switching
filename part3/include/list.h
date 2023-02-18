@@ -1,73 +1,48 @@
-#include<stdlib.h>
 #ifndef LIST_H
 #define LIST_H
+/*! 
+	@brief Doubly linked list.
+*/
 struct list {
-	struct listentry* head;
-	struct listentry* tail;
+	struct listentry* head; ///< Head of the linked list. Head is NULL when list is empty.
+	struct listentry* tail; ///< Tail of the linked list. Tail is NULL when list is empty.
 };
 
+/*! 
+	@brief Elements of the Linked List.
+*/
 struct listentry {
-	void *data;
-	struct listentry *prev;
-	struct listentry *next;
+	void *data; ///< Pointer of the data of the listentry
+	struct listentry *prev; ///< Pointer of the previous element of the linked list
+	struct listentry *next; ///< Pointer of the next element of the linked list
 };
 
-void list_rm(struct list* l, struct listentry* e)
-{
-	if (e==NULL) return;
-	else if (l->head == e && l->tail == e)
-	{
-		l->head = l->tail = NULL;
-	}
-	else if(l->head == e)
-	{
-		l->head = e->next;
-		e->next->prev = NULL;
-	}
-	else if(l->tail == e)
-	{
-		l->tail = e->prev;
-		e->prev->next = NULL;
-	}
-	else 
-	{
-		e->prev->next = e->next;
-		e->next->prev = e->prev;
-	}
-	free(e);
-};    // Remove an item from the list
-struct listentry* list_add(struct list* l, void* data)
-{
-	if(l->head == NULL)
-	{
-		struct listentry* temp = (struct listentry*) malloc(sizeof(struct listentry));
-		temp->data = data;
-		temp->prev = NULL;
-		temp->next = NULL;
-		l->head = temp;
-		l->tail = temp;
-		return temp;
-	}
-	else 
-	{
-		struct listentry* temp = (struct listentry*) malloc(sizeof(struct listentry));
-		temp->data = data;
-		temp->prev = l->tail;
-		temp->next = NULL;
-		l->tail->next = temp;
-		l->tail = temp;
-		return temp;
-	}
-};  // Add an item to the list
-struct list* list_new()
-{
-	struct list *l = (struct list*) malloc(sizeof(struct list));
-	l->head = l->tail = NULL;
-	return l;
-};  // Return an initialized list
-int is_empty(struct list* l)
-{
-	if(l->head == NULL) return 1;
-	return 0;
-};  // Check if list is empty or not
+/*! 
+	@brief Removes the given element from the Linked List 
+	@param l : pointer to the linked list.
+	@param e : pointer to the linked list entry need to be removed.
+
+	Removes the given element from the Linked List by iterating through it and removing when found.
+*/
+void list_rm(struct list* l, struct listentry* e);    // Remove an item from the list
+
+/*! 
+	@brief Adds the given element to the Linked List 
+	@param l : Pointer to the linked list.
+	@param data : Element that needs to be added.
+
+	Creates an object of type listentry with its data as the given input and adds it to the end of the list.
+*/
+struct listentry* list_add(struct list* l, void* data);  // Add an item to the list
+
+/*! 
+	@return Returns pointer to a dynamically allocated Linked List.
+*/
+struct list* list_new();  // Return an initialized list
+
+/*! 
+	@param l : Pointer to a linked list.
+	@return Returns 1 if List is empty and 0 otherwise.
+*/
+int is_empty(struct list* l);  // Check if list is empty or not
 #endif

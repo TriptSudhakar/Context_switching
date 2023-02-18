@@ -1,0 +1,103 @@
+\hypertarget{mythread_8h}{}\doxysection{include/mythread.h File Reference}
+\label{mythread_8h}\index{include/mythread.h@{include/mythread.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ucontext.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for mythread.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlock}{lock}}
+\begin{DoxyCompactList}\small\item\em Lock object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mythread_8h_a208f41a96703a668897f97f212bfaf52}{mythread\+\_\+init}} ()
+\item 
+void $\ast$ \mbox{\hyperlink{mythread_8h_aa551d9e63859966605c79afe8fe523f0}{mythread\+\_\+create}} (void func(void $\ast$), void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Creates a new thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mythread_8h_abf1d6455a1b78b1be5113e76ba8b02dc}{mythread\+\_\+join}} ()
+\item 
+void \mbox{\hyperlink{mythread_8h_a8c8049ca40472b6e4fedad5960d6b56d}{mythread\+\_\+yield}} ()
+\item 
+struct \mbox{\hyperlink{structlock}{lock}} $\ast$ \mbox{\hyperlink{mythread_8h_a7e30f9b3f35a7a46b4d1b98734ff3b23}{lock\+\_\+new}} ()
+\item 
+void \mbox{\hyperlink{mythread_8h_add38fde7157ac3938c4a60b64ed67e9f}{lock\+\_\+acquire}} (struct \mbox{\hyperlink{structlock}{lock}} $\ast$lk)
+\item 
+int \mbox{\hyperlink{mythread_8h_a86df4756182955a6ca389503c93d1822}{lock\+\_\+release}} (struct \mbox{\hyperlink{structlock}{lock}} $\ast$lk)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mythread_8h_add38fde7157ac3938c4a60b64ed67e9f}\label{mythread_8h_add38fde7157ac3938c4a60b64ed67e9f}} 
+\index{mythread.h@{mythread.h}!lock\_acquire@{lock\_acquire}}
+\index{lock\_acquire@{lock\_acquire}!mythread.h@{mythread.h}}
+\doxysubsubsection{\texorpdfstring{lock\_acquire()}{lock\_acquire()}}
+{\footnotesize\ttfamily void lock\+\_\+acquire (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlock}{lock}} $\ast$}]{lk }\end{DoxyParamCaption})}
+
+Sets lock for a key, and yields if the key is already locked. Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{mythread_8h_a7e30f9b3f35a7a46b4d1b98734ff3b23}\label{mythread_8h_a7e30f9b3f35a7a46b4d1b98734ff3b23}} 
+\index{mythread.h@{mythread.h}!lock\_new@{lock\_new}}
+\index{lock\_new@{lock\_new}!mythread.h@{mythread.h}}
+\doxysubsubsection{\texorpdfstring{lock\_new()}{lock\_new()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlock}{lock}}$\ast$ lock\+\_\+new (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Returns a pointer to a dynamically allocated lock object. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{mythread_8h_a86df4756182955a6ca389503c93d1822}\label{mythread_8h_a86df4756182955a6ca389503c93d1822}} 
+\index{mythread.h@{mythread.h}!lock\_release@{lock\_release}}
+\index{lock\_release@{lock\_release}!mythread.h@{mythread.h}}
+\doxysubsubsection{\texorpdfstring{lock\_release()}{lock\_release()}}
+{\footnotesize\ttfamily int lock\+\_\+release (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structlock}{lock}} $\ast$}]{lk }\end{DoxyParamCaption})}
+
+Releases lock for a key. Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{mythread_8h_aa551d9e63859966605c79afe8fe523f0}\label{mythread_8h_aa551d9e63859966605c79afe8fe523f0}} 
+\index{mythread.h@{mythread.h}!mythread\_create@{mythread\_create}}
+\index{mythread\_create@{mythread\_create}!mythread.h@{mythread.h}}
+\doxysubsubsection{\texorpdfstring{mythread\_create()}{mythread\_create()}}
+{\footnotesize\ttfamily void$\ast$ mythread\+\_\+create (\begin{DoxyParamCaption}\item[{void }]{funcvoid $\ast$,  }\item[{void $\ast$}]{arg }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & \+: The function to be linked to the newly created thread. \\
+\hline
+{\em arg} & \+: The argument to be given when calling \char`\"{}func\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the pointer to the context created.
+\end{DoxyReturn}
+Creates a new thread with the function func and adds it to the existing threadlist. Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{mythread_8h_a208f41a96703a668897f97f212bfaf52}\label{mythread_8h_a208f41a96703a668897f97f212bfaf52}} 
+\index{mythread.h@{mythread.h}!mythread\_init@{mythread\_init}}
+\index{mythread\_init@{mythread\_init}!mythread.h@{mythread.h}}
+\doxysubsubsection{\texorpdfstring{mythread\_init()}{mythread\_init()}}
+{\footnotesize\ttfamily void mythread\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialises threadlist pointer to a dynamically allocated Linked List. Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{mythread_8h_abf1d6455a1b78b1be5113e76ba8b02dc}\label{mythread_8h_abf1d6455a1b78b1be5113e76ba8b02dc}} 
+\index{mythread.h@{mythread.h}!mythread\_join@{mythread\_join}}
+\index{mythread\_join@{mythread\_join}!mythread.h@{mythread.h}}
+\doxysubsubsection{\texorpdfstring{mythread\_join()}{mythread\_join()}}
+{\footnotesize\ttfamily void mythread\+\_\+join (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Waits for other threads to complete. Used in case of dependent threads. \mbox{\Hypertarget{mythread_8h_a8c8049ca40472b6e4fedad5960d6b56d}\label{mythread_8h_a8c8049ca40472b6e4fedad5960d6b56d}} 
+\index{mythread.h@{mythread.h}!mythread\_yield@{mythread\_yield}}
+\index{mythread\_yield@{mythread\_yield}!mythread.h@{mythread.h}}
+\doxysubsubsection{\texorpdfstring{mythread\_yield()}{mythread\_yield()}}
+{\footnotesize\ttfamily void mythread\+\_\+yield (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Performs context switching. Used while yielding from one context to another without completing the current context. 

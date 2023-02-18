@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['next_77',['next',['../structlistentry.html#a9afb253e4f1ccd87a285e84e4ea9609f',1,'listentry']]]
+];

@@ -1,0 +1,12 @@
+digraph "hashmap_get"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="hashmap_get",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Removes and returns the value corresponding to the key in hashmap."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="hashfn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$hm_8c.html#a001e1c368cb113181470ab277bdacaab",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="list_rm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$list_8h.html#a2439cbd6a22b846a91b51aad0511157a",tooltip="Removes the given element from the Linked List."];
+}

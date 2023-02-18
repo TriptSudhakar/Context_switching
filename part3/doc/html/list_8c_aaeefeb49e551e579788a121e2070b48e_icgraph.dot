@@ -1,0 +1,12 @@
+digraph "list_new"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="list_new",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="hashmap_create",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$hm_8h.html#a4daf13745d2c7e59baf9124b0cd98d46",tooltip="Initialises the hashmap."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="mythread_init",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mythread_8h.html#a208f41a96703a668897f97f212bfaf52",tooltip=" "];
+}

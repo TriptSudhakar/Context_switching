@@ -1,0 +1,14 @@
+digraph "hashmap_s"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="hashmap_s",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Hashmap consisting of linked lists with locks."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" lk" ];
+  Node2 [label="lock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structlock.html",tooltip="Lock object."];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" table" ];
+  Node3 [label="list",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structlist.html",tooltip="Doubly linked list."];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" head\ntail" ];
+  Node4 [label="listentry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structlistentry.html",tooltip="Elements of the Linked List."];
+  Node4 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" next\nprev" ];
+}

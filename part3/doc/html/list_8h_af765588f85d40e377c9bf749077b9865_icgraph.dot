@@ -1,0 +1,12 @@
+digraph "list_add"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="list_add",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Adds the given element to the Linked List."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="hashmap_put",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$hm_8h.html#ae91dcb3550855f201bc443c1635080fb",tooltip="Adds the key value pair to the hashmap."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="mythread_create",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$mythread_8h.html#aa551d9e63859966605c79afe8fe523f0",tooltip="Creates a new thread."];
+}

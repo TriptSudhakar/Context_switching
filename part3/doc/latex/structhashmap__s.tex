@@ -1,0 +1,43 @@
+\hypertarget{structhashmap__s}{}\doxysection{hashmap\+\_\+s Struct Reference}
+\label{structhashmap__s}\index{hashmap\_s@{hashmap\_s}}
+
+
+Hashmap consisting of linked lists with locks.  
+
+
+
+
+{\ttfamily \#include $<$hm.\+h$>$}
+
+
+
+Collaboration diagram for hashmap\+\_\+s\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlist}{list}} $\ast$ \mbox{\hyperlink{structhashmap__s_a6239cc34fb6d8974cb6528f22bec6476}{table}} \mbox{[}\mbox{\hyperlink{hm_8c_a11d818f14508b076eda0cfe98640b7ae}{SZ}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of linked list pointers. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlock}{lock}} $\ast$ \mbox{\hyperlink{structhashmap__s_a72164674721306bf8779f1c3245b1ab0}{lk}} \mbox{[}\mbox{\hyperlink{hm_8c_a11d818f14508b076eda0cfe98640b7ae}{SZ}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of lock pointers corresponding to the linked lists of the hashtable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structhashmap__s_a72164674721306bf8779f1c3245b1ab0}\label{structhashmap__s_a72164674721306bf8779f1c3245b1ab0}} 
+\index{hashmap\_s@{hashmap\_s}!lk@{lk}}
+\index{lk@{lk}!hashmap\_s@{hashmap\_s}}
+\doxysubsubsection{\texorpdfstring{lk}{lk}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlock}{lock}} $\ast$ hashmap\+\_\+s\+::lk}
+
+\mbox{\Hypertarget{structhashmap__s_a6239cc34fb6d8974cb6528f22bec6476}\label{structhashmap__s_a6239cc34fb6d8974cb6528f22bec6476}} 
+\index{hashmap\_s@{hashmap\_s}!table@{table}}
+\index{table@{table}!hashmap\_s@{hashmap\_s}}
+\doxysubsubsection{\texorpdfstring{table}{table}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structlist}{list}} $\ast$ hashmap\+\_\+s\+::table}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{hm_8h}{hm.\+h}}\item 
+src/\mbox{\hyperlink{hm_8c}{hm.\+c}}\end{DoxyCompactItemize}
