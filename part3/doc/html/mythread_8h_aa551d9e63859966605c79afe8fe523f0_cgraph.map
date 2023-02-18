@@ -1,0 +1,4 @@
+<map id="mythread_create" name="mythread_create">
+<area shape="rect" id="node1" title="Creates a new thread." alt="" coords="5,5,139,32"/>
+<area shape="rect" id="node2" href="$list_8h.html#af765588f85d40e377c9bf749077b9865" title="Adds the given element to the Linked List." alt="" coords="187,5,260,32"/>
+</map>

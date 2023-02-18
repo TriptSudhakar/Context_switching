@@ -1,0 +1,5 @@
+<map id="list_add" name="list_add">
+<area shape="rect" id="node1" title="Adds the given element to the Linked List." alt="" coords="187,31,260,57"/>
+<area shape="rect" id="node2" href="$hm_8h.html#ae91dcb3550855f201bc443c1635080fb" title="Adds the key value pair to the hashmap." alt="" coords="17,5,127,32"/>
+<area shape="rect" id="node3" href="$mythread_8h.html#aa551d9e63859966605c79afe8fe523f0" title="Creates a new thread." alt="" coords="5,56,139,83"/>
+</map>

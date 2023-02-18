@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
     start = clock();
     mythread_join();
 	end = clock();
-    // hashmap_iterator(&hashmap, printer);
+    hashmap_iterator(&hashmap, printer);
     printf("Testing threads done!\n\n");
 	printf("%f\n",((double)(end-start))/CLOCKS_PER_SEC);
 }

@@ -1,0 +1,5 @@
+<map id="acquire_bucket" name="acquire_bucket">
+<area shape="rect" id="node1" title="Acquire lock on a hashmap slot." alt="" coords="5,31,125,57"/>
+<area shape="rect" id="node2" href="$hm_8c.html#a001e1c368cb113181470ab277bdacaab" title=" " alt="" coords="192,5,259,32"/>
+<area shape="rect" id="node3" href="$mythread_8h.html#add38fde7157ac3938c4a60b64ed67e9f" title=" " alt="" coords="173,56,277,83"/>
+</map>
