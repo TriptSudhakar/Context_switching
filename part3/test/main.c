@@ -27,13 +27,13 @@ int main(int argc, char** argv) {
     start = clock();
     mythread_join();
 	end = clock();
-    hashmap_iterator(&hashmap, printer);
+    // hashmap_iterator(&hashmap, printer);
     printf("Testing threads done!\n\n");
 	printf("%f\n",((double)(end-start))/CLOCKS_PER_SEC);
 }
 
-static void f2 (char* word) {
-    // printf("Inside f2 %s\n", word);
+static void inc_word_count (char* word) {
+    // printf("Inside inc_word_count %s\n", word);
     acquire_bucket(&hashmap, word);
     int* c = (int*) hashmap_get(&hashmap, word);
     int* c1 = (int*) malloc(sizeof(int));
@@ -44,10 +44,10 @@ static void f2 (char* word) {
         // }
         *c1 = *c + 1;
     }
-    // printf("Inside f2: c1 %d\n", *c1);
+    // printf("Inside inc_word_count: c1 %d\n", *c1);
     hashmap_put(&hashmap, word, c1);
     release_bucket(&hashmap, word);
-    // puts("finish f2");
+    // puts("finish inc_word_count");
 }
 
 void readFile(void *args) {
@@ -73,7 +73,7 @@ void readFile(void *args) {
 	            i++;
 	        } else {
 	            arr[i] = 0;
-	            f2(arr);
+	            inc_word_count(arr);
 	            for(int j=0;j<25;j++)
 	                arr[j]='\0';
 	            i=0;
