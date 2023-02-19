@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include "../include/hm.h"
-// #include "../include/list.h"
-// #include "../include/mythread.h"
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 void readFile(void *);
 
@@ -17,19 +14,15 @@ int printer(struct hashmap_element_s *const e) {
 }
 
 int main(int argc, char** argv) {
-	clock_t start,end;
     hashmap_create(&hashmap);
     printf("Testing threads!\n");
     mythread_init();
     for(int i=1;i<argc;i++) {
         mythread_create(readFile, (void *) argv[i]);
     }
-    start = clock();
     mythread_join();
-	end = clock();
     // hashmap_iterator(&hashmap, printer);
     printf("Testing threads done!\n\n");
-	printf("%f\n",((double)(end-start))/CLOCKS_PER_SEC);
 }
 
 static void inc_word_count (char* word) {

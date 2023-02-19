@@ -1,5 +1,4 @@
 #include "../include/list.h"
-// #include "../include/hm.h"
 #include "../include/mythread.h"
 #include <stdbool.h>
 #include <stdlib.h>
@@ -41,6 +40,22 @@ int hashmap_create(struct hashmap_s *const out_hashmap)
 int hashmap_put(struct hashmap_s *const hashmap, const char* key, void* data)
 {
     int hashval = hashfn(key);
+    struct listentry* it = hashmap->table[hashval]->head;
+    while(it!=NULL)
+    {
+        struct hashmap_element_s* temp = (struct hashmap_element_s*)(it->data);
+        if(temp != NULL)
+        {
+            int i=0;
+            while(temp->key[i]!='\0'&&key[i]!='\0'&&temp->key[i]==key[i]) i++;
+            if(temp->key[i] == '\0' && key[i] == '\0')
+            { 
+                temp->data = data;
+                return 0;  
+            } 
+        }
+        it = it->next;
+    }
     struct hashmap_element_s* e = (struct hashmap_element_s*) malloc(sizeof(struct hashmap_element_s));
     int count = 0;
     while(key[count]!='\0') count++;

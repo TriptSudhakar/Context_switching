@@ -1,8 +1,5 @@
 #include<stdlib.h>
 #include<stdio.h>
-// #include "../include/list.h"
-// #include "../include/hm.h"
-// #include "../include/mythread.h"
 struct list {
 	struct listentry* head;
 	struct listentry* tail;

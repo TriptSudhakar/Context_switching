@@ -5,8 +5,6 @@
 #include<sys/time.h>
 #include<unistd.h>
 #include "../include/list.h"
-// #include "../include/hm.h"
-// #include "../include/mythread.h"
 
 struct list* threadlist;
 static ucontext_t ctx;
@@ -32,13 +30,9 @@ ucontext_t* mythread_create(void func(void*), void* arg)
 void mythread_join()
 {
 	if(is_empty(threadlist)) return;
-	// clock_t start,end;
 	ucontext_t* head = (ucontext_t*)(threadlist->head)->data;
 	getcontext(&ctx);
-	// start = clock();
 	swapcontext(&ctx,head);
-	// end = clock();
-	// printf("%f\n",((double)(end-start))/CLOCKS_PER_SEC);
 	list_rm(threadlist,threadlist->head);
 	mythread_join();
 };  // Waits for other thread to complete. It is used in case of dependent threads.
