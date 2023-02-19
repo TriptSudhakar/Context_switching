@@ -80,10 +80,7 @@ void* hashmap_get(struct hashmap_s *const hashmap, const char* key)
             while(temp->key[i]!='\0'&&key[i]!='\0'&&temp->key[i]==key[i]) i++;
             if(temp->key[i] == '\0' && key[i] == '\0')
             { 
-                void* data = temp->data;
-                free(temp->key);
-                list_rm(hashmap->table[hashval],it);
-                return data;  
+                return temp->data;
             } 
         }
         it = it->next;
