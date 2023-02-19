@@ -6,6 +6,8 @@ hashmap:
 	./obj/hashmap_test -I include/
 doc:
 	doxygen Doxyfile
+report:
+	pdflatex report.tex
 clean:
 	rm -f obj/*
 	rm -fr doc/*
