@@ -1,3 +1,2 @@
-# Bakerstreet Boys
-Hello guys we will use this repository to keep track of our progress in Lab 2 :)
-Hello!
+# Context Switching Library
+Implementing a context switching library in using ucontext for counting words in different files at once.
